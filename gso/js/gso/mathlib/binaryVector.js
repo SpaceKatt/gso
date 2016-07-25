@@ -43,5 +43,14 @@
     this.view = function() {
       return '[' + this.elements.join(', ') + ']';
     }
+
+
+  },
+
+  Gso.MathLib.BinaryVector.newOne = function(elements) {
+    var bv = new Gso.MathLib.BinaryVector();
+
+    return bv.setElements(elements);
   };
+
 }());
