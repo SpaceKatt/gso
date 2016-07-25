@@ -1,4 +1,3 @@
-// binaryMatrix.spec...
 describe("Gso.MathLib.BinaryMatrix", function () {
   it("has elements values", function () {
     // Create new BinaryMatrix
@@ -105,4 +104,37 @@ describe("Gso.MathLib.BinaryMatrix", function () {
     expect(result_5).to.not.be.ok;
   });
 
+  it("can boolMultiply matrices", function () {
+    var bm_e = new Gso.MathLib.BinaryMatrix();
+    var bm_e1 = new Gso.MathLib.BinaryMatrix();
+    var bm_e2 = new Gso.MathLib.BinaryMatrix();
+    var elements = [[0,1,1,1],[1,0,0,0],[1,1,1,0],[1,0,0,0]];
+    var elements_1 = [[0,1,0,1],[1,0,1,0],[1,0,1,0],[0,0,1,0]];
+    var elements_2 = [[0,1,0],[1,0,1],[1,0,1]];
+    bm_e.setElements(elements);
+    bm_e1.setElements(elements_1);
+    bm_e2.setElements(elements_2);
+    var result_6 = bm_e.boolMultiply(bm_e1);
+    expect(result_6).to.be.ok;
+    var result_7 = bm_e2.boolMultiply(bm_e1);
+    expect(result_7).to.not.be.ok;
+  });
+
+  it("can display matrices for viewing", function () {
+    var bm_f = new Gso.MathLib.BinaryMatrix();
+    var bm_f1 = new Gso.MathLib.BinaryMatrix();
+    var bm_f2 = new Gso.MathLib.BinaryMatrix();
+    var elements = [[0,1,1,1],[1,0,0,0],[1,1,1,0],[1,0,0,0]];
+    var elements_1 = [[0,1,0,1],[1,0,1,0],[1,0,1,0],[0,0,1,0]];
+    var elements_2 = [[0,1,0],[1,0,1],[1,0,1]];
+    bm_f.setElements(elements);
+    bm_f1.setElements(elements_1);
+    bm_f2.setElements(elements_2);
+    var result_8 = bm_f.matrixView();
+    expect(result_8).to.be.ok;
+    expect(result_8).to.equal('[0, 1, 1, 1]<br>[1, 0, 0, 0]<br>[1, 1, 1, 0]<br>[1, 0, 0, 0]');
+    var result_9 = bm_f1.matrixView();
+    expect(result_9).to.be.ok;
+    expect(result_9).to.equal('[0, 1, 0, 1]<br>[1, 0, 1, 0]<br>[1, 0, 1, 0]<br>[0, 0, 1, 0]');
+  });
 });

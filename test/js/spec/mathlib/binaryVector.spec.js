@@ -1,4 +1,3 @@
-//binaryVector spec..
 describe("Gso.MathLib.BinaryVector", function () {
   it("has element values", function () {
     // Create new BinaryVector
