@@ -3,7 +3,7 @@
 
   // Note Model
   // ----------
-  Gso.Models.Note = Backbone.Model.extend({
+  Gso.Models.Structure = Backbone.Model.extend({
 
     defaults: function () {
       return {

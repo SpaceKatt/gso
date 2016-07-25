@@ -1,7 +1,7 @@
-describe("Gso.Models.Note", function () {
+describe("Gso.Models.Structure", function () {
   it("has default values", function () {
     // Create empty note model.
-    var model = new Gso.Models.Note();
+    var model = new Gso.Models.Structure();
 
     expect(model).to.be.ok;
     expect(model.get("title")).to.equal("");
@@ -10,7 +10,7 @@ describe("Gso.Models.Note", function () {
   });
 
   it("sets passed attributes", function () {
-    var model = new Gso.Models.Note({
+    var model = new Gso.Models.Structure({
       title: "Grocery List",
       text: "* Milk\n* Eggs\n*Coffee"
     });

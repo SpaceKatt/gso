@@ -1,88 +1,9 @@
+// binaryMatrix ..
 'use strict';
 //var binaryVector = require('./binaryVector');
-//var binaryVector = new BinaryVector();
-var binaryVector = new Gso.MathLib.BinaryVector();
+var binaryVector = new BinaryVector();
 //var binaryVectorNew = require('./binaryVectorNew');
-//function BinaryMatrix(){};
-Gso.MathLib.BinaryMatrix = function BinaryMatrix(){
-
-  this.setElements = function(newElements) {
-    var row;
-    var column;
-    var elements = newElements.elements || newElements;
-    if (elements[0] && typeof(elements[0][0]) !== 'undefined') {
-      row = elements.length;
-      this.elements = [];
-      while (row--) {
-        column = elements[row].length;
-        this.elements[row] = [];
-        while (column--) {
-          this.elements[row][column] = elements[row][column];
-        }
-      }
-      return this;
-    }
-    var elementsLength = elements.length;
-    this.elements = [];
-    for (row = 0; row < elementsLength; row++) {
-      this.elements.push([elements[row]]);
-    }
-    return this;
-  },
-
-  this.setRow = function(rowNumberToReplace, ReplacementRow) {
-    if(this.elements.length === 0) {
-      /* eslint-disable */
-    alert('Matrix (row) is empty. Select a matrix with content.');
-    console.log('Matrix (row) is empty. Select a matrix with content.');
-      /* eslint-enable */
-
-    } else if ( rowNumberToReplace < 1 || rowNumberToReplace >
-      this.elements.length) {
-      /* eslint-disable */
-      alert('Matrix row, to replace, is out of range, please enter valid row.');
-      console.log('Matrix row, to replace, is out of range, please enter \
-      valid row.');
-      /* eslint-enable */
-
-      return null;
-    } else {
-    /*  this.elements[rowNumberToReplace-1] = ReplacementRow.elements ; */
-      this.elements[rowNumberToReplace-1] = ReplacementRow ;
-    }
-  },
-
-  this.setElement = function(row, column, valueToSet) {
-    if (row < 1|| row > this.elements.length || column < 1 || column >
-      this.elements[0].length) {
-      /* eslint-disable */
-      alert('Matrix element, to set, is out of range, please enter valid \
-      matrix element cell.');
-      console.log('Matrix element, to set, is out of range, please enter \
-      valid matrix element cell.');
-    } else {
-      this.elements[row-1][column-1] = valueToSet;
-    }
-  },
-
-  this.getElement = function(row, column) {
-    if(row < 1 || row > this.elements.length || column < 1 || column >
-      this.elements[0].length) {
-      /* eslint-disable */
-      alert('Matrix element, to return is out of range. Please enter a valid \
-      matrix element cell.');
-      console.log('Matrix element, to return is out of range. Please enter a \
-      valid matrix element cell.');
-      /* eslint-enable */
-
-      return null;
-    }
-
-    return this.elements[row-1][column-1];
-  }
-
-}
-//////////
+function BinaryMatrix(){};
 
 BinaryMatrix.prototype = {
   getElement: function(row, column) {
