@@ -204,7 +204,7 @@ Gso.MathLib.BinaryMatrix = function BinaryMatrix(){
         tempNumberOfColumns + 1);
       }
     }
-    
+
       return Gso.MathLib.BinaryMatrix.newOne(elements);
   },
 
@@ -339,5 +339,33 @@ Gso.MathLib.BinaryMatrix.newOne = function(elements) {
   var bm = new Gso.MathLib.BinaryMatrix();
 
   return bm.setElements(elements);
-};
+},
+
+Gso.MathLib.BinaryMatrix.one = function(size) {
+  var elements = [];
+  var rowIndex;
+  var columnIndex;
+  for(rowIndex = 0; rowIndex < size; rowIndex++){
+    elements[rowIndex] = [];
+    for(columnIndex = 0; columnIndex < size; columnIndex++){
+      elements[rowIndex][columnIndex] = 1;
+    }
+  }
+  var bm = new Gso.MathLib.BinaryMatrix();
+  return bm.setElements(elements);
+},
+Gso.MathLib.BinaryMatrix.zero = function(size) {
+  var elements = [];
+  var rowIndex;
+  var columnIndex;
+  for(rowIndex = 0; rowIndex < size; rowIndex++){
+    elements[rowIndex] = [];
+    for(columnIndex = 0; columnIndex < size; columnIndex++){
+      elements[rowIndex][columnIndex] = 0;
+    }
+  }
+  var bm = new Gso.MathLib.BinaryMatrix();
+  return bm.setElements(elements);
+}
+
 }());
