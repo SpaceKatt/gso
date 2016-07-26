@@ -29,7 +29,7 @@
       // Router can be set directly (e.g., tests), or use global.
       // The `app.router` object *does* exist at this point.
       this.nav = opts.nav;
-      this.router = opts.router || app.router;
+      this.router = opts.router || gso.router;
 
       // Verification.
       // -- Line Omitted in Book. --
@@ -44,7 +44,7 @@
       this.render();
 
       // Add in viewer child view (which auto-renders).
-      this.noteView = new Gso.Views.NoteView({
+      this.noteView = new Gso.Views.StructureView({
         el: this.$("#note-pane-view-content"),
         model: this.model
       });

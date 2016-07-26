@@ -36,29 +36,29 @@
     // Common single note edit/view.
     note: function (noteId, action) {
       // Check if we are already at currently active view.
-      if (this.noteView) {
-        if (this.noteView.model.id === noteId) {
+      if (this.structureView) {
+        if (this.structureView.model.id === noteId) {
           // Reuse existing note view if same note.
-          return this.noteView.trigger("update:" + action);
+          return this.structureView.trigger("update:" + action);
         } else {
           // Else, remove the last stored view.
-          this.noteView.remove();
+          this.structureView.remove();
         }
       }
 
       // Try to find note in existing collection.
-      var model = this.notesView.collection.get(noteId);
+      var model = this.structuresView.collection.get(noteId);
       if (!model) {
         // Go to home page on missing model.
         return this.navigate("", { trigger: true });
       }
 
       // Create note and add to DOM.
-      this.noteView = new Gso.Views.Note({ model: model }, {
+      this.structureView = new Gso.Views.Structure({ model: model }, {
         action: action,
-        nav: this.noteNavView
+        nav: this.structureNavView
       });
-      $("#note").html(this.noteView.render().$el);
+      $("#note").html(this.structureView.render().$el);
     }
 
   });
