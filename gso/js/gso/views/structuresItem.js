@@ -25,7 +25,7 @@
       // Get router from options or app. Also allow to be empty
       // so that tests can `render` without.
       opts || (opts = {});
-      this.router = opts.router || app.router;
+      this.router = opts.router || gso.router;
 
       this.listenTo(this.model, {
         "change":   function () { this.render(); },

@@ -58,7 +58,7 @@
 
     // Add single child note view to front of notes list.
     addNote: function (model) {
-      var view = new App.Views.NotesItem({ model: model });
+      var view = new Gso.Views.StructuresItem({ model: model });
 
       this.$("#notes-list tr")
         .filter(":last")
