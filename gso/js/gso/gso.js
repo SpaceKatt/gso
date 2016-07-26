@@ -13,14 +13,14 @@ $(function () {
   // the router is the ingress point that handles a request and
   // actually binds it to a view, allowing the view methods to be
   // called.
-  gso.notesView = new Gso.Views.Notes({
+  gso.structuresView = new Gso.Views.Structures({
     collection: gso.collection
   });
-  gso.noteNavView = new GSO.Views.NoteNav();
+  gso.structureNavView = new Gso.Views.StructureNav();
 
   // Router has dependencies on `app.*View` objects, so comes
   // after.
-  gso.router = new GSO.Routers.Router();
+  gso.router = new Gso.Routers.Router();
 
   // Wait until we have our initial collection from the backing
   // store before firing up the router.
@@ -29,6 +29,6 @@ $(function () {
   });
 
   // Now fetch collection data, kicking off everything.
-  agso.collection.fetch({ reset: true });
+  gso.collection.fetch({ reset: true });
 
 });
