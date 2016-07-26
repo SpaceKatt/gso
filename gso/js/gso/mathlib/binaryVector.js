@@ -51,6 +51,31 @@
     var bv = new Gso.MathLib.BinaryVector();
 
     return bv.setElements(elements);
-  };
+  },
+
+  Gso.MathLib.BinaryVector.zero = function(size) {
+    var elements = [];
+    var index;
+    for(index = 0; index < size; index++)
+    {
+      elements.push(0);
+    }
+    var bv = new Gso.MathLib.BinaryVector();
+
+    return bv.setElements(elements);
+  },
+
+  Gso.MathLib.BinaryVector.one = function(size) {
+    var elements = [];
+    var index;
+    for(index = 0; index < size; index++)
+    {
+      elements.push(1);
+    }
+    var bv = new Gso.MathLib.BinaryVector();
+
+    return bv.setElements(elements);
+  }
+
 
 }());

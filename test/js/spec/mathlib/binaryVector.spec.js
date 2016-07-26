@@ -20,4 +20,24 @@ describe("Gso.MathLib.BinaryVector", function () {
     expect(bv_1.indexOf(1)).to.equal(1);
 
   });
+
+  it("creates a zero filled vector", function () {
+    // Create new BinaryVector
+    var bv_z = new Gso.MathLib.BinaryVector.zero(6);
+    expect(bv_z).to.be.ok;
+    expect(bv_z.elements.length).to.equal(6);
+    expect(bv_z.elements[0]).to.equal(0);
+    expect(bv_z.element(5)).to.equal(0);
+    expect(bv_z.indexOf(0)).to.equal(1);
+  });
+
+  it("creates a one filled vector", function () {
+    // Create new BinaryVector
+    var bv_o = new Gso.MathLib.BinaryVector.one(6);
+    expect(bv_o).to.be.ok;
+    expect(bv_o.elements.length).to.equal(6);
+    expect(bv_o.elements[0]).to.equal(1);
+    expect(bv_o.element(5)).to.equal(1);
+    expect(bv_o.indexOf(1)).to.equal(1);
+  });
 });

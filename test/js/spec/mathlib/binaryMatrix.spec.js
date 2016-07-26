@@ -137,4 +137,43 @@ describe("Gso.MathLib.BinaryMatrix", function () {
     expect(result_9).to.be.ok;
     expect(result_9).to.equal('[0, 1, 0, 1]<br>[1, 0, 1, 0]<br>[1, 0, 1, 0]<br>[0, 0, 1, 0]');
   });
+
+  it("can generate zero filled matrices", function () {
+    var bm_z = new Gso.MathLib.BinaryMatrix.zero(6);
+    expect(bm_z).to.be.ok;
+    expect(bm_z.elements.length).to.equal(6);
+    expect(bm_z.elements[0].length).to.equal(6);
+    expect(bm_z.elements[0][1]).to.equal(0);
+    expect(bm_z.elements[2][2]).to.equal(0);
+    expect(bm_z.elements[5][1]).to.equal(0);
+    expect(bm_z.elements[5][5]).to.equal(0);
+    expect(bm_z.elements[4][3]).to.equal(0);
+    expect(bm_z.elements[0][0]).to.equal(0);
+  });
+
+  it("can generate one filled matrices", function () {
+    var bm_o = new Gso.MathLib.BinaryMatrix.one(6);
+    expect(bm_o).to.be.ok;
+    expect(bm_o.elements.length).to.equal(6);
+    expect(bm_o.elements[0].length).to.equal(6);
+    expect(bm_o.elements[0][1]).to.equal(1);
+    expect(bm_o.elements[2][2]).to.equal(1);
+    expect(bm_o.elements[5][1]).to.equal(1);
+    expect(bm_o.elements[5][5]).to.equal(1);
+    expect(bm_o.elements[4][3]).to.equal(1);
+    expect(bm_o.elements[0][0]).to.equal(1);
+  });
+
+  it("can generate an id matrix", function () {
+    var bm_i = new Gso.MathLib.BinaryMatrix.id(6);
+    expect(bm_i).to.be.ok;
+    expect(bm_i.elements.length).to.equal(6);
+    expect(bm_i.elements[0].length).to.equal(6);
+    expect(bm_i.elements[0][1]).to.equal(0);
+    expect(bm_i.elements[2][2]).to.equal(1);
+    expect(bm_i.elements[5][1]).to.equal(0);
+    expect(bm_i.elements[5][5]).to.equal(1);
+    expect(bm_i.elements[4][3]).to.equal(0);
+    expect(bm_i.elements[0][0]).to.equal(1);
+  });
 });

@@ -5,7 +5,7 @@ $(function () {
 
   // Initialize application components.
   // The collection object comes first as views depend on it.
-  gso.collection = new GSO.Collections.Notes();
+  gso.collection = new Gso.Collections.Structures();
 
   // Views come next. Lazy dependency on router internally, meaning
   // that by the time we start using view methods, the `app.router`
@@ -13,7 +13,7 @@ $(function () {
   // the router is the ingress point that handles a request and
   // actually binds it to a view, allowing the view methods to be
   // called.
-  gso.notesView = new GSO.Views.Notes({
+  gso.notesView = new Gso.Views.Notes({
     collection: gso.collection
   });
   gso.noteNavView = new GSO.Views.NoteNav();

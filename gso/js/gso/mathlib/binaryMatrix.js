@@ -366,6 +366,20 @@ Gso.MathLib.BinaryMatrix.zero = function(size) {
   }
   var bm = new Gso.MathLib.BinaryMatrix();
   return bm.setElements(elements);
+},
+
+Gso.MathLib.BinaryMatrix.id = function(size) {
+  var elements = [];
+  var rowIndex;
+  var columnIndex;
+  for(rowIndex = 0; rowIndex < size; rowIndex++){
+    elements[rowIndex] = [];
+    for(columnIndex = 0; columnIndex < size; columnIndex++){
+      elements[rowIndex][columnIndex] = (rowIndex === columnIndex) ? 1 : 0;
+    }
+  }
+  var bm = new Gso.MathLib.BinaryMatrix();
+  return bm.setElements(elements);
 }
 
 }());
