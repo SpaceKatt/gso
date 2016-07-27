@@ -1,13 +1,13 @@
 (function () {
   'use strict';
 
-  // Note View
+  // Structure View
   // ---------
-  // A single note.
+  // A single structure.
   //
   // Contains:
-  // * App.Views.NoteNav: Helper view for navigation events.
-  // * App.Views.NoteView: Child view for rendering Markdown.
+  // * Gso.Views.StructureNav: Helper view for navigation events.
+  // * Gso.Views.StructureView: Child view for rendering Markdown.
   //
   Gso.Views.Structure = Backbone.View.extend({
 
@@ -16,7 +16,7 @@
     template: _.template(Gso.Templates["template-note"]),
 
     events: {
-      "blur   #note-form-edit": "saveNote",
+      "blur   #note-form-edit": "saveStructure", // added saveStructure saveNote
       "submit #note-form-edit": function () { return false; }
     },
 
@@ -27,12 +27,11 @@
       // Add member variables.
       //
       // Router can be set directly (e.g., tests), or use global.
-      // The `app.router` object *does* exist at this point.
+      // The `gso.router` object *does* exist at this point.
       this.nav = opts.nav;
       this.router = opts.router || gso.router;
 
       // Verification.
-      // -- Line Omitted in Book. --
       if (!this.router) { throw new Error("No router"); }
 
       // Add our custom listeners.
@@ -60,15 +59,15 @@
 
       // Navbar controls/responds to panes.
       this.listenTo(this.nav, {
-        "nav:view":   function () { this.viewNote(); },
-        "nav:edit":   function () { this.editNote(); },
-        "nav:delete": function () { this.deleteNote(); }
+        "nav:view":   function () { this.viewStructure(); },
+        "nav:edit":   function () { this.editStructure(); },
+        "nav:delete": function () { this.deleteStructure(); }
       });
 
       // Respond to update events from router.
       this.on({
-        "update:view": function () { this.render().viewNote(); },
-        "update:edit": function () { this.render().editNote(); }
+        "update:view": function () { this.render().viewStructure(); },
+        "update:edit": function () { this.render().editStructure(); }
       });
     },
 
@@ -107,16 +106,16 @@
     },
 
     // Activate "view" or "edit" note panes.
-    viewNote: function () {
+    viewStructure: function () {
       this.update("view");
     },
-    editNote: function () {
+    editStructure: function () {
       this.update("edit");
     },
 
     // Delete model (causes view removal) and navigate to
     // "all notes" list page.
-    deleteNote: function () {
+    deleteStructure: function () {
       if (confirm("Delete note?")) {
         this.model.destroy();
         this.router.navigate("", { trigger: true, replace: true });
@@ -124,7 +123,7 @@
     },
 
     // Save note (triggering model change).
-    saveNote: function () {
+    saveStructure: function () {
       this.model.set({
         title: this.$("#input-title").val().trim(),
         text: this.$("#input-text").val().trim()
