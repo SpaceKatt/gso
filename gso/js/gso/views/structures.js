@@ -37,7 +37,7 @@
       //
       this.listenTo(this.collection, {
         "reset":     function ()  { this.addStructures(); }, //addNotes()
-        "structure:add": function (m) { this.addStructure(m); } //addNote(m) note:add
+        "structures:add": function (m) { this.addStructure(m); } //addNote(m) note:add
       });
 
       // Create helper filter view.
@@ -87,7 +87,6 @@
       // Get value, then reset note input.
       var input = this.$input.val().trim();
       this.$input.val("");
-
       if (input) {
         this.create(input);
       }
@@ -99,6 +98,7 @@
       // Add new model to collection, and corresponding note
       // to DOM after model is saved.
       coll.create({ title: title }, {
+
         success: function (colData, modelData) {
           // Trigger event on model retrieved from collection.
           coll.trigger("structures:add", coll.get(modelData.id)); //notes:add"
