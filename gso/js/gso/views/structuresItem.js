@@ -1,9 +1,9 @@
 (function () {
   'use strict';
 
-  // Notes Item View
+  // Structures Item View
   // ---------------
-  // A single note within a list of notes.
+  // A single structure within a list of structures.
   Gso.Views.StructuresItem = Backbone.View.extend({
 
     // Set rendered DOM element `id` property to the model's id.
@@ -11,14 +11,14 @@
 
     tagName: "tr",
 
-    className: "notes-item",
+    className: "structures-item", //notes-item
 
-    template: _.template(Gso.Templates["template-notes-item"]),
+    template: _.template(Gso.Templates["template-structures-item"]), //template-notes-item
 
     events: {
-      "click .note-view":   function () { this.viewNote(); },
-      "click .note-edit":   function () { this.editNote(); },
-      "click .note-delete": function () { this.deleteNote(); }
+      "click .structure-view":   function () { this.viewStructure(); }, //note-view viewNote()
+      "click .structure-edit":   function () { this.editStructure(); },
+      "click .structure-delete": function () { this.deleteStructure(); }
     },
 
     initialize: function (attrs, opts) {
@@ -38,17 +38,17 @@
       return this;
     },
 
-    viewNote: function () {
-      var loc = ["note", this.model.id, "view"].join("/");
+    viewStructure: function () { //viewNote:
+      var loc = ["structure", this.model.id, "view"].join("/"); //"note"
       this.router.navigate(loc, { trigger: true });
     },
 
-    editNote: function () {
-      var loc = ["note", this.model.id, "edit"].join("/");
+    editStructure: function () { //editNote:
+      var loc = ["structure", this.model.id, "edit"].join("/"); //"note"
       this.router.navigate(loc, { trigger: true });
     },
 
-    deleteNote: function () {
+    deleteStructure: function () { //  deleteNote
       // Destroying model triggers view cleanup.
       this.model.destroy();
     }

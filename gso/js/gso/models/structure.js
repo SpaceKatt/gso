@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  // Note Model
+  // Structure Model
   // ----------
   Gso.Models.Structure = Backbone.Model.extend({
 

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  // Notes Filter View
+  // Structures Filter View
   // -----------------
   // Controls search filter and emits filter events.
   Gso.Views.StructuresFilter = Backbone.View.extend({
@@ -13,9 +13,9 @@
       "submit": function () { return false; },
 
       // Call filter on any data change.
-      "change   .search-query": "filterNotes",
-      "keypress .search-query": "filterNotes",
-      "keyup    .search-query": "filterNotes"
+      "change   .search-query": "filterStructures", //filterNotes"
+      "keypress .search-query": "filterStructures",
+      "keyup    .search-query": "filterStructures"
     },
 
     initialize: function () {
@@ -29,11 +29,11 @@
       // to have the Notes view emit its own "notes:add" event after
       // adding the DOM element.
       //
-      this.listenTo(this.collection, "notes:add", function (model) {
+      this.listenTo(this.collection, "structures:add", function (model) { //notes:add
         // We wrap this call in a function (rather than passing
         // `this.filterNote` straight to the `listenTo`) so that
         // we actually can stub this method using Sinon.JS.
-        this.filterNote(model);
+        this.filterStructure(model); //filterNote
       });
     },
 
@@ -73,22 +73,22 @@
     // as a collection callback, which will naturally give us the
     // model as a parameter.
     //
-    filterNote: function (model) {
-      var $note = $("#" + model.id),
+    filterStructure: function (model) { //filterNote:
+      var $structure = $("#" + model.id), //$note
         match = this.isMatch(this.query(), model.get("title"));
 
       // Show matches, else hide.
-      match ? $note.show() : $note.hide();
+      match ? $structure.show() : $structure.hide(); //note.show()  $note.hide()
     },
 
     // Apply filter to all notes in collection.
-    filterNotes: function () {
+    filterStructures: function () { //filterNotes:
       var query = this.$(".search-query").val().trim();
 
       // If query changed, store and apply to collection.
       if (query !== this.query()) {
         this.query(query);
-        this.collection.each(this.filterNote, this);
+        this.collection.each(this.filterStructure, this); //filterNote
       }
     }
 

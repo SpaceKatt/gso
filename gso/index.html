@@ -29,20 +29,21 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="nav-target">
         <!-- Nav's for single note view -->
-        <ul id="note-nav" class="nav navbar-nav region region-note" style="display: none;">
-          <li class="note-view active">
+      <!--  <ul id="note-nav" class="nav navbar-nav region region-note" style="display: none;"> -->
+        <ul id="structure-nav" class="nav navbar-nav region region-structure" style="display: none;">
+          <li class="structure-view active">
             <a href="#">
               <span class="glyphicon glyphicon-file"></span>
               <span class="hidden-phone-portrait">View</span>
             </a>
           </li>
-          <li class="note-edit">
+          <li class="structure-edit">
             <a href="#">
               <span class="glyphicon glyphicon-pencil"></span>
               <span class="hidden-phone-portrait">Edit</span>
             </a>
           </li>
-          <li class="note-delete">
+          <li class="structure-delete">
             <a href="#">
               <span class="glyphicon glyphicon-trash"></span>
               <span class="hidden-phone-portrait">Delete</span>
@@ -51,7 +52,7 @@
         </ul>
 
         <!-- Nav's for notes filter view -->
-        <form class="nav navbar-nav navbar-right navbar-form-nonresp navbar-search region region-notes"
+        <form class="nav navbar-nav navbar-right navbar-form-nonresp navbar-search region region-structures"
               role="search" style="display: none;">
           <div class="form-group">
             <input type="text" class="search-query form-control"
@@ -64,19 +65,19 @@
     <!-- Content -->
     <div class="container">
       <!-- Content: Notes -->
-      <div id="notes" class="region region-notes" style="display: none;">
-        <table id="notes-list" class="table table-curved table-hover">
+      <div id="structures" class="region region-structures" style="display: none;">
+        <table id="structures-list" class="table table-curved table-hover">
           <tbody>
-            <tr class="notes-new">
-              <td class="note-name">
-                <input id="note-new-input"
+            <tr class="structures-new">
+              <td class="structure-name">
+                <input id="structure-new-input"
                        class="form-control"
                        placeholder="Write a new note." autofocus>
               </td>
-              <td class="note-action">
-                <button id="note-create"
+              <td class="structure-action">
+                <button id="structure-create"
                         type="button"
-                        class="btn btn-default btn-sm pull-right">
+                        class="btn btn-default btn-default pull-right">
                   <span class="glyphicon glyphicon-plus"></span>
                 </button>
               </td>
@@ -86,7 +87,7 @@
       </div>
 
       <!-- Content: Single Note -->
-      <div id="note" class="region region-note" style="display: none;"></div>
+      <div id="structure" class="region region-structure" style="display: none;"></div>
     </div>
 
     <!-- JavaScript Core Libraries -->

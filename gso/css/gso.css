@@ -4,7 +4,7 @@ body {
 }
 
 /* Nav bar */
-#note-nav a span {
+#structure-nav a span {
   opacity: 0.85;
 }
 
@@ -19,22 +19,22 @@ body {
 }
 
 /* Notes View - Table Listing of Notes */
-table#notes-list {
+table#structures-list {
   width: 100%;
 }
-table#notes-list td {
+table#structures-list td {
   padding: 0.5em;
   vertical-align: middle;
   border-right: none;
   border-left: none;
 }
-table#notes-list td .note-title {
+table#structures-list td .note-title {
   font-weight: bold;
   font-size: 1.1em;
   color: #3a3a3a;
   cursor: pointer;
 }
-table#notes-list td.note-action {
+table#structures-list td.structure-action {
   width: 95px;
 }
 
@@ -51,7 +51,7 @@ table#notes-list td.note-action {
   border-top: 1px solid #dddddd;
 }
 .table-curved th,
-table#notes-list tr.notes-new td {
+table#structures-list tr.structures-new td {
   border-top: none;
 }
 .table-curved th:first-child {
@@ -71,7 +71,7 @@ table#notes-list tr.notes-new td {
 }
 
 /* Notes View - "Add new note" input. */
-input#note-new-input {
+input#structure-new-input {
   width: 100%;
   border: none;
   background: inherit;
@@ -81,10 +81,10 @@ input#note-new-input {
   -o-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
-input#note-new-input::-webkit-input-placeholder {
+input#structure-new-input::-webkit-input-placeholder {
   font-style: italic;
 }
-input#note-new-input:-moz-placeholder {
+input#structure-new-input:-moz-placeholder {
   font-style: italic;
   color: #a9a9a9;
 }

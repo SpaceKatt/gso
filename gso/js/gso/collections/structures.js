@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  // Notes Collection
+  // Structures Collection
   // ----------------
   // Uses HTML `localStorage`.
   Gso.Collections.Structures = Backbone.Collection.extend({

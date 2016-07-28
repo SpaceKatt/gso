@@ -11,8 +11,8 @@
     // definite Backbone.js efficiencies from using simple string
     // method names instead (like name inference, etc).
     routes: {
-      "": "notes",
-      "note/:id/:action": "note",
+      "": "structures", //notes
+      "structure/:id/:action": "structure", //note
     },
 
     initialize: function (opts) {
@@ -29,15 +29,15 @@
     },
 
     // Show notes list.
-    notes: function () {
+    structures: function () { //notes
       this.structuresView.render();
     },
 
     // Common single note edit/view.
-    note: function (noteId, action) {
+    structure: function (structureId, action) { //note
       // Check if we are already at currently active view.
       if (this.structureView) {
-        if (this.structureView.model.id === noteId) {
+        if (this.structureView.model.id === structureId) { // noteId
           // Reuse existing note view if same note.
           return this.structureView.trigger("update:" + action);
         } else {
@@ -47,7 +47,8 @@
       }
 
       // Try to find note in existing collection.
-      var model = this.structuresView.collection.get(noteId);
+      // var model = this.structuresView.collection.get(structureId); // noteId
+      var model = this.structuresView.collection.get(structureId); // noteId
       if (!model) {
         // Go to home page on missing model.
         return this.navigate("", { trigger: true });
@@ -58,7 +59,7 @@
         action: action,
         nav: this.structureNavView
       });
-      $("#note").html(this.structureView.render().$el);
+      $("#structure").html(this.structureView.render().$el); //#note
     }
 
   });

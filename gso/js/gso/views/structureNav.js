@@ -1,9 +1,9 @@
 (function () {
   'use strict';
 
-  // Note Navigation Bar View
+  // Structure Navigation Bar View
   // ------------------------
-  // Controls note nav bar and emits navigation events.
+  // Controls structure nav bar and emits navigation events.
   //
   // Listens to: events that trigger menu DOM updates.
   // * `nav:update:view`
@@ -15,12 +15,12 @@
   // * `nav:delete`
   Gso.Views.StructureNav = Backbone.View.extend({
 
-    el: "#note-nav",
+    el: "#structure-nav", // note-nav
 
     events: {
-      "click .note-view":   "clickView",
-      "click .note-edit":   "clickEdit",
-      "click .note-delete": "clickDelete",
+      "click .structure-view":   "clickView", //note-view
+      "click .structure-edit":   "clickEdit",
+      "click .structure-delete": "clickDelete",
     },
 
     initialize: function () {
@@ -36,12 +36,12 @@
 
     // Handlers for updating nav bar UI.
     updateView: function () {
-      this.$("li").not(".note-view").removeClass("active");
-      this.$(".note-view").addClass("active");
+      this.$("li").not(".structure-view").removeClass("active"); //note-view
+      this.$(".structure-view").addClass("active");
     },
     updateEdit: function () {
-      this.$("li").not(".note-edit").removeClass("active");
-      this.$(".note-edit").addClass("active");
+      this.$("li").not(".structure-edit").removeClass("active"); //note-edit
+      this.$(".structure-edit").addClass("active");
     },
 
     // Handlers for emitting nav events.

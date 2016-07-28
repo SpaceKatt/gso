@@ -11,13 +11,13 @@
   //
   Gso.Views.Structure = Backbone.View.extend({
 
-    id: "note-panes",
+    id: "structure-panes", //note-panes
 
-    template: _.template(Gso.Templates["template-note"]),
+    template: _.template(Gso.Templates["template-structure"]), //template-note
 
     events: {
-      "blur   #note-form-edit": "saveStructure", // added saveStructure saveNote
-      "submit #note-form-edit": function () { return false; }
+      "blur   #structure-form-edit": "saveStructure", // added saveStructure saveNote
+      "submit #structure-form-edit": function () { return false; }
     },
 
     initialize: function (attrs, opts) {
@@ -37,14 +37,14 @@
       // Add our custom listeners.
       this._addListeners();
 
-      // Render HTML, update to action, and show note.
+      // Render HTML, update to action, and show structure.
       this.$el.html(this.template(this.model.toJSON()));
       this.update(opts.action || "view");
       this.render();
 
       // Add in viewer child view (which auto-renders).
-      this.noteView = new Gso.Views.StructureView({
-        el: this.$("#note-pane-view-content"),
+      this.structureView = new Gso.Views.StructureView({  // this.noteView
+        el: this.$("#structure-pane-view-content"), //note-pane-view-content
         model: this.model
       });
     },
@@ -74,22 +74,22 @@
     // Rendering the note is simply showing the active pane.
     // All HTML should already be rendered during initialize.
     render: function () {
-      $(".region").not(".region-note").hide();
-      $(".region-note").show();
+      $(".region").not(".region-structure").hide(); //region-note
+      $(".region-structure").show(); //region-note
       return this;
     },
 
     remove: function () {
       // Remove child, then self.
-      this.noteView.remove();
+      this.structureView.remove(); //noteView
       Backbone.View.prototype.remove.call(this);
     },
 
     // Update internal "action" state (view or edit).
     update: function (action) {
       action = action || this.action || "view";
-      var paneEl = "#note-pane-" + action,
-        loc = "note/" + this.model.id + "/" + action;
+      var paneEl = "#structure-pane-" + action, //#note-pane-
+        loc = "structure/" + this.model.id + "/" + action; //note/
 
       // Ensure menu bar is updated.
       this.nav.trigger("nav:update:" + action);
