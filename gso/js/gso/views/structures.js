@@ -95,13 +95,13 @@
     create: function (title) {
       var coll = this.collection;
 
-      // Add new model to collection, and corresponding note
+      // Add new model to collection, and corresponding structure
       // to DOM after model is saved.
       coll.create({ title: title }, {
 
         success: function (colData, modelData) {
           // Trigger event on model retrieved from collection.
-          coll.trigger("structures:add", coll.get(modelData.id)); //notes:add"
+          coll.trigger("structures:add", coll.get(modelData.id)); 
         }
       });
     }

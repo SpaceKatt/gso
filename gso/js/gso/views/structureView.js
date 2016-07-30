@@ -6,7 +6,7 @@
   // Render a single note pane for viewing.
   Gso.Views.StructureView = Backbone.View.extend({
 
-    template: _.template(Gso.Templates["template-structure-view"]), //template-note-view
+    template: _.template(Gso.Templates["template-structure-view"]), 
 
     converter: new Showdown.converter(),
 

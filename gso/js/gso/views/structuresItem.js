@@ -11,12 +11,12 @@
 
     tagName: "tr",
 
-    className: "structures-item", //notes-item
+    className: "structures-item",
 
-    template: _.template(Gso.Templates["template-structures-item"]), //template-notes-item
+    template: _.template(Gso.Templates["template-structures-item"]),
 
     events: {
-      "click .structure-view":   function () { this.viewStructure(); }, //note-view viewNote()
+      "click .structure-view":   function () { this.viewStructure(); },
       "click .structure-edit":   function () { this.editStructure(); },
       "click .structure-delete": function () { this.deleteStructure(); }
     },
@@ -38,17 +38,17 @@
       return this;
     },
 
-    viewStructure: function () { //viewNote:
-      var loc = ["structure", this.model.id, "view"].join("/"); //"note"
+    viewStructure: function () {
+      var loc = ["structure", this.model.id, "view"].join("/");
       this.router.navigate(loc, { trigger: true });
     },
 
-    editStructure: function () { //editNote:
-      var loc = ["structure", this.model.id, "edit"].join("/"); //"note"
+    editStructure: function () {
+      var loc = ["structure", this.model.id, "edit"].join("/");
       this.router.navigate(loc, { trigger: true });
     },
 
-    deleteStructure: function () { //  deleteNote
+    deleteStructure: function () { 
       // Destroying model triggers view cleanup.
       this.model.destroy();
     }

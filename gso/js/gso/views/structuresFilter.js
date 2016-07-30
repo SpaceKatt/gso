@@ -13,7 +13,7 @@
       "submit": function () { return false; },
 
       // Call filter on any data change.
-      "change   .search-query": "filterStructures", //filterNotes"
+      "change   .search-query": "filterStructures",
       "keypress .search-query": "filterStructures",
       "keyup    .search-query": "filterStructures"
     },
@@ -21,19 +21,19 @@
     initialize: function () {
       this._query = this.$(".search-query").val().trim();
 
-      // Apply filter for any newly added notes.
+      // Apply filter for any newly added structures.
       //
       // **Note**: This implicitly depends on the list element
-      // existing in the DOM, which means the NotesView has to add
+      // existing in the DOM, which means the StructuresView has to add
       // collection listeners **first**. A better approach would be
-      // to have the Notes view emit its own "notes:add" event after
+      // to have the Structures view emit its own "structures:add" event after
       // adding the DOM element.
       //
       this.listenTo(this.collection, "structures:add", function (model) { //notes:add
         // We wrap this call in a function (rather than passing
-        // `this.filterNote` straight to the `listenTo`) so that
+        // `this.filterStructure` straight to the `listenTo`) so that
         // we actually can stub this method using Sinon.JS.
-        this.filterStructure(model); //filterNote
+        this.filterStructure(model);
       });
     },
 
@@ -73,22 +73,22 @@
     // as a collection callback, which will naturally give us the
     // model as a parameter.
     //
-    filterStructure: function (model) { //filterNote:
-      var $structure = $("#" + model.id), //$note
+    filterStructure: function (model) {
+      var $structure = $("#" + model.id),
         match = this.isMatch(this.query(), model.get("title"));
 
       // Show matches, else hide.
-      match ? $structure.show() : $structure.hide(); //note.show()  $note.hide()
+      match ? $structure.show() : $structure.hide();
     },
 
     // Apply filter to all notes in collection.
-    filterStructures: function () { //filterNotes:
+    filterStructures: function () {
       var query = this.$(".search-query").val().trim();
 
       // If query changed, store and apply to collection.
       if (query !== this.query()) {
         this.query(query);
-        this.collection.each(this.filterStructure, this); //filterNote
+        this.collection.each(this.filterStructure, this); 
       }
     }
 

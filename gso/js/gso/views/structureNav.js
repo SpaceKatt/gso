@@ -15,10 +15,10 @@
   // * `nav:delete`
   Gso.Views.StructureNav = Backbone.View.extend({
 
-    el: "#structure-nav", // note-nav
+    el: "#structure-nav",
 
     events: {
-      "click .structure-view":   "clickView", //note-view
+      "click .structure-view":   "clickView",
       "click .structure-edit":   "clickEdit",
       "click .structure-delete": "clickDelete",
     },
@@ -36,11 +36,11 @@
 
     // Handlers for updating nav bar UI.
     updateView: function () {
-      this.$("li").not(".structure-view").removeClass("active"); //note-view
+      this.$("li").not(".structure-view").removeClass("active");
       this.$(".structure-view").addClass("active");
     },
     updateEdit: function () {
-      this.$("li").not(".structure-edit").removeClass("active"); //note-edit
+      this.$("li").not(".structure-edit").removeClass("active"); 
       this.$(".structure-edit").addClass("active");
     },
 

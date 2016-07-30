@@ -81,15 +81,15 @@
 
     remove: function () {
       // Remove child, then self.
-      this.structureView.remove(); //noteView
+      this.structureView.remove();
       Backbone.View.prototype.remove.call(this);
     },
 
     // Update internal "action" state (view or edit).
     update: function (action) {
       action = action || this.action || "view";
-      var paneEl = "#structure-pane-" + action, //#note-pane-
-        loc = "structure/" + this.model.id + "/" + action; //note/
+      var paneEl = "#structure-pane-" + action,
+        loc = "structure/" + this.model.id + "/" + action;
 
       // Ensure menu bar is updated.
       this.nav.trigger("nav:update:" + action);
@@ -105,7 +105,7 @@
       }
     },
 
-    // Activate "view" or "edit" note panes.
+    // Activate "view" or "edit" structure panes.
     viewStructure: function () {
       this.update("view");
     },
@@ -114,7 +114,7 @@
     },
 
     // Delete model (causes view removal) and navigate to
-    // "all notes" list page.
+    // "all structures" list page.
     deleteStructure: function () {
       if (confirm("Delete note?")) {
         this.model.destroy();
@@ -122,7 +122,7 @@
       }
     },
 
-    // Save note (triggering model change).
+    // Save structure (triggering model change).
     saveStructure: function () {
       this.model.set({
         title: this.$("#input-title").val().trim(),
