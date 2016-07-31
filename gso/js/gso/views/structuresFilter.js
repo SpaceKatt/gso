@@ -29,7 +29,7 @@
       // to have the Structures view emit its own "structures:add" event after
       // adding the DOM element.
       //
-      this.listenTo(this.collection, "structures:add", function (model) { //notes:add
+      this.listenTo(this.collection, "structures:add", function (model) { 
         // We wrap this call in a function (rather than passing
         // `this.filterStructure` straight to the `listenTo`) so that
         // we actually can stub this method using Sinon.JS.
@@ -88,7 +88,7 @@
       // If query changed, store and apply to collection.
       if (query !== this.query()) {
         this.query(query);
-        this.collection.each(this.filterStructure, this); 
+        this.collection.each(this.filterStructure, this);
       }
     }
 
