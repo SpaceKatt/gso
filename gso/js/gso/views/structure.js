@@ -13,10 +13,10 @@
 
     id: "structure-panes", //note-panes
 
-    template: _.template(Gso.Templates["template-structure"]), //template-note
+    template: _.template(Gso.Templates["template-structure"]),
 
     events: {
-      "blur   #structure-form-edit": "saveStructure", // added saveStructure saveNote
+      "blur   #structure-form-edit": "saveStructure",
       "submit #structure-form-edit": function () { return false; }
     },
 
@@ -43,8 +43,8 @@
       this.render();
 
       // Add in viewer child view (which auto-renders).
-      this.structureView = new Gso.Views.StructureView({  // this.noteView
-        el: this.$("#structure-pane-view-content"), //note-pane-view-content
+      this.structureView = new Gso.Views.StructureView({
+        el: this.$("#structure-pane-view-content"),
         model: this.model
       });
     },
@@ -74,8 +74,8 @@
     // Rendering the note is simply showing the active pane.
     // All HTML should already be rendered during initialize.
     render: function () {
-      $(".region").not(".region-structure").hide(); //region-note
-      $(".region-structure").show(); //region-note
+      $(".region").not(".region-structure").hide();
+      $(".region-structure").show(); 
       return this;
     },
 
