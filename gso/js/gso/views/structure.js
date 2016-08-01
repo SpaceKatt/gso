@@ -11,7 +11,7 @@
   //
   Gso.Views.Structure = Backbone.View.extend({
 
-    id: "structure-panes", //note-panes
+    id: "structure-panes", 
 
     template: _.template(Gso.Templates["template-structure"]),
 
@@ -75,7 +75,7 @@
     // All HTML should already be rendered during initialize.
     render: function () {
       $(".region").not(".region-structure").hide();
-      $(".region-structure").show(); 
+      $(".region-structure").show();
       return this;
     },
 

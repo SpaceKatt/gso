@@ -1,27 +1,27 @@
 /*jslint maxlen: 200 */
 // Underscore Templates
 
-Gso.Templates["template-structures-item"] = //template-notes-item
-  "<td class=\"structure-name\">" + //note-name
-  "  <div class=\"structure-title structure-view\"><%= title %></div>" + //note-title note-view\
+Gso.Templates["template-structures-item"] =
+  "<td class=\"structure-name\">" +
+  "  <div class=\"structure-title structure-view\"><%= title %></div>" +
   "</td>" +
-  "<td class=\"structure-action\">" + //note-action
+  "<td class=\"structure-action\">" +
   "  <div class=\"btn-group btn-group-default pull-right\">" +
-  "    <button class=\"btn btn-default structure-edit\">" + //note-edit
+  "    <button class=\"btn btn-default structure-edit\">" +
   "      <span class=\"glyphicon glyphicon-pencil\"></span>" +
   "    </button>" +
-  "    <button class=\"btn btn-default structure-delete\">" + //note-delete
+  "    <button class=\"btn btn-default structure-delete\">" +
   "      <span class=\"glyphicon glyphicon-trash\"></span>" +
   "    </button>" +
   "  </div>" +
   "</td>";
 
-Gso.Templates["template-structure"] = //template-note
-  "<div id=\"structure-pane-view\" class=\"pane\">" + //note-pane-view
-  "  <div id=\"structure-pane-view-content\"></div>" + //note-pane-view-content
+Gso.Templates["template-structure"] =
+  "<div id=\"structure-pane-view\" class=\"pane\">" +
+  "  <div id=\"structure-pane-view-content\"></div>" +
   "</div>" +
-  "<div id=\"structure-pane-edit\" class=\"pane\">" + //note-pane-edit
-  "  <form id=\"structure-form-edit\" role=\"form\">" + //note-form-edit
+  "<div id=\"structure-pane-edit\" class=\"pane\">" +
+  "  <form id=\"structure-form-edit\" role=\"form\">" + 
   "    <div class=\"form-group\">" +
   "      <input id=\"input-title\" class=\"form-control\"" +
   "             type=\"text\" placeholder=\"title\"" +
@@ -34,8 +34,9 @@ Gso.Templates["template-structure"] = //template-note
   "  </form>" +
   "</div>";
 
-Gso.Templates["template-structure-view"] = //template-note-view
+Gso.Templates["template-structure-view"] =
   "<div class=\"well well-small\">" +
   "  <h2 id=\"pane-title\"><%= title %></h2>" +
   "</div>" +
-  "<div id=\"pane-text\"><%= text %></div>";
+  "<div id=\"pane-text\"><%= text %></div>" +
+  "<div><h1>Hi There!!</h1></div>";
