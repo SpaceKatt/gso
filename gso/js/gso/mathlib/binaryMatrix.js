@@ -1,42 +1,38 @@
+/*global Gso */
 (function () {
-
-'use strict';
-var binaryVector = new Gso.MathLib.BinaryVector();
-
-Gso.MathLib.BinaryMatrix = function BinaryMatrix(){
-  //this.elements;
-  this.setElements = function(newElements) {
-    var row;
-    var column;
-    var elements = newElements.elements || newElements;
-    if (elements[0] && typeof(elements[0][0]) !== 'undefined') {
-      row = elements.length;
-      this.elements = [];
-      while (row--) {
-        column = elements[row].length;
-        this.elements[row] = [];
-        while (column--) {
-          this.elements[row][column] = elements[row][column];
+  'use strict'
+  Gso.MathLib.BinaryMatrix = function BinaryMatrix () {
+    this.setElements = function (newElements) {
+      var row
+      var column
+      var elements = newElements.elements || newElements
+      if (elements[0] && typeof (elements[0][0]) !== 'undefined') {
+        row = elements.length
+        this.elements = []
+        while (row--) {
+          column = elements[row].length
+          this.elements[row] = []
+          while (column--) {
+            this.elements[row][column] = elements[row][column]
+          }
         }
+        return this
       }
-      return this;
+      var elementsLength = elements.length
+      this.elements = []
+      for (row = 0; row < elementsLength; row++) {
+        this.elements.push([elements[row]])
+      }
+      return this
     }
-    var elementsLength = elements.length;
-    this.elements = [];
-    for (row = 0; row < elementsLength; row++) {
-      this.elements.push([elements[row]]);
-    }
-    return this;
-  },
 
-  this.setRow = function(rowNumberToReplace, ReplacementRow) {
-    if(this.elements.length === 0) {
-      /* eslint-disable */
-    alert('Matrix (row) is empty. Select a matrix with content.');
-    console.log('Matrix (row) is empty. Select a matrix with content.');
-      /* eslint-enable */
-
-    } else if ( rowNumberToReplace < 1 || rowNumberToReplace >
+    this.setRow = function (rowNumberToReplace, ReplacementRow) {
+      if (this.elements.length === 0) {
+        /* eslint-disable */
+        alert('Matrix (row) is empty. Select a matrix with content.');
+        console.log('Matrix (row) is empty. Select a matrix with content.');
+        /* eslint-enable */
+      } else if (rowNumberToReplace < 1 || rowNumberToReplace >
       this.elements.length) {
       /* eslint-disable */
       alert('Matrix row, to replace, is out of range, please enter valid row.');
@@ -44,30 +40,28 @@ Gso.MathLib.BinaryMatrix = function BinaryMatrix(){
       valid row.');
       /* eslint-enable */
 
-      return null;
-    } else {
-    /*  this.elements[rowNumberToReplace-1] = ReplacementRow.elements ; */
-      this.elements[rowNumberToReplace-1] = ReplacementRow ;
+        return null
+      } else {
+        /*  this.elements[rowNumberToReplace-1] = ReplacementRow.elements ; */
+        this.elements[rowNumberToReplace - 1] = ReplacementRow
+      }
     }
-  },
-
-  this.getRow = function(rowNumberToGet) {
-    if (rowNumberToGet < 1 || rowNumberToGet > this.elements.length) {
+    this.getRow = function (rowNumberToGet) {
+      if (rowNumberToGet < 1 || rowNumberToGet > this.elements.length) {
       /* eslint-disable */
       alert('Matrix row, to return, is out of range, please enter valid \
       matrix row.');
       console.log('Matrix row, to return, is out of range, please enter \
       valid matrix row.');
       /* eslint-enable */
+        return null
+      }
 
-      return null;
-     }
+      return this.elements[rowNumberToGet - 1]
+    }
 
-    return this.elements[rowNumberToGet-1];
-  },
-
-  this.setElement = function(row, column, valueToSet) {
-    if (row < 1|| row > this.elements.length || column < 1 || column >
+    this.setElement = function (row, column, valueToSet) {
+      if (row < 1 || row > this.elements.length || column < 1 || column >
       this.elements[0].length) {
       /* eslint-disable */
       alert('Matrix element, to set, is out of range, please enter valid \

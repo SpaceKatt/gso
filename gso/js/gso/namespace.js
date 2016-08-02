@@ -1,5 +1,4 @@
-/*namespace*/
-/*global Gso:true, Gso:true */
+
 // Set up global application namespace using object literals.
 //
 // For more on JavaScript namespacing, see:
@@ -22,14 +21,14 @@
 //      MathLib: {}
 //    }
 //
-var Gso = Gso   || {};
-Gso.Config      || (Gso.Config = {});
-Gso.Models      || (Gso.Models = {});
-Gso.Collections || (Gso.Collections = {});
-Gso.Routers     || (Gso.Routers = {});
-Gso.Views       || (Gso.Views = {});
-Gso.Templates   || (Gso.Templates = {});
-Gso.MathLib     || (Gso.MathLib = {});
+var Gso = Gso || {}
+Gso.Config || (Gso.Config = {})
+Gso.Models || (Gso.Models = {})
+Gso.Collections || (Gso.Collections = {})
+Gso.Routers || (Gso.Routers = {})
+Gso.Views || (Gso.Views = {})
+Gso.Templates || (Gso.Templates = {})
+Gso.MathLib || (Gso.MathLib = {})
 
 // Application instance.
-var gso = gso || {};
+var gso = gso || {}
