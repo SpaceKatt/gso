@@ -1,3 +1,4 @@
+/*global Gso, gso, _,  Backbone */
 (function () {
   'use strict'
 
@@ -16,8 +17,8 @@
     template: _.template(Gso.Templates['template-structures-item']),
 
     events: {
-      'click .structure-view':   function () { this.viewStructure() },
-      'click .structure-edit':   function () { this.editStructure() },
+      'click .structure-view': function () { this.viewStructure() },
+      'click .structure-edit': function () { this.editStructure() },
       'click .structure-delete': function () { this.deleteStructure() }
     },
 
@@ -28,8 +29,8 @@
       this.router = opts.router || gso.router
 
       this.listenTo(this.model, {
-        'change':   function () { this.render() },
-        'destroy':  function () { this.remove() }
+        'change': function () { this.render() },
+        'destroy': function () { this.remove() }
       })
     },
 

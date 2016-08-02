@@ -1,3 +1,4 @@
+/*global Gso, gso, $,  Backbone */
 (function () {
   'use strict'
 

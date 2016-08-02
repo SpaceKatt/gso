@@ -1,3 +1,4 @@
+/* global Gso */
 /* jslint maxlen: 200 */
 // Underscore Templates
 

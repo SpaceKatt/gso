@@ -1,16 +1,17 @@
-describe("Namespace", function () {
+/* global describe, expect, Gso, it */
+describe('Namespace', function () {
   it("provides the 'Gso' object", function () {
     // Expect exists and is an object.
-    expect(Gso).to.be.an("object");
+    expect(Gso).to.be.an('object')
 
     // Expect all namespace properties are present.
     expect(Gso).to.include.keys(
-      "Config", "Collections", "Models",
-      "Routers", "Templates", "Views", "MathLib"
-    );
-  });
+      'Config', 'Collections', 'Models',
+      'Routers', 'Templates', 'Views', 'MathLib'
+    )
+  })
 
   it("provides the 'gso' object", function () {
-    expect(gso).to.be.an("object");
-  });
-});
+    expect(gso).to.be.an('object')
+  })
+})
