@@ -1,5 +1,6 @@
+/*global Gso, Backbone */
 (function () {
-  'use strict';
+  'use strict'
 
   // Structure Model
   // ----------
@@ -7,11 +8,11 @@
 
     defaults: function () {
       return {
-        title: "",
-        text: "*Edit your note!*",
+        title: '',
+        text: '*Edit your note!*',
         createdAt: new Date()
-      };
+      }
     }
 
-  });
-}());
+  })
+}())
