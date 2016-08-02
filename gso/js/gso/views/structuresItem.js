@@ -1,5 +1,5 @@
 (function () {
-  'use strict';
+  'use strict'
 
   // Structures Item View
   // ---------------
@@ -7,51 +7,51 @@
   Gso.Views.StructuresItem = Backbone.View.extend({
 
     // Set rendered DOM element `id` property to the model's id.
-    id: function () { return this.model.id; },
+    id: function () { return this.model.id },
 
-    tagName: "tr",
+    tagName: 'tr',
 
-    className: "structures-item",
+    className: 'structures-item',
 
-    template: _.template(Gso.Templates["template-structures-item"]),
+    template: _.template(Gso.Templates['template-structures-item']),
 
     events: {
-      "click .structure-view":   function () { this.viewStructure(); },
-      "click .structure-edit":   function () { this.editStructure(); },
-      "click .structure-delete": function () { this.deleteStructure(); }
+      'click .structure-view':   function () { this.viewStructure() },
+      'click .structure-edit':   function () { this.editStructure() },
+      'click .structure-delete': function () { this.deleteStructure() }
     },
 
     initialize: function (attrs, opts) {
       // Get router from options or app. Also allow to be empty
       // so that tests can `render` without.
-      opts || (opts = {});
-      this.router = opts.router || gso.router;
+      opts || (opts = {})
+      this.router = opts.router || gso.router
 
       this.listenTo(this.model, {
-        "change":   function () { this.render(); },
-        "destroy":  function () { this.remove(); }
-      });
+        'change':   function () { this.render() },
+        'destroy':  function () { this.remove() }
+      })
     },
 
     render: function () {
-      this.$el.html(this.template(this.model.toJSON()));
-      return this;
+      this.$el.html(this.template(this.model.toJSON()))
+      return this
     },
 
     viewStructure: function () {
-      var loc = ["structure", this.model.id, "view"].join("/");
-      this.router.navigate(loc, { trigger: true });
+      var loc = ['structure', this.model.id, 'view'].join('/')
+      this.router.navigate(loc, { trigger: true })
     },
 
     editStructure: function () {
-      var loc = ["structure", this.model.id, "edit"].join("/");
-      this.router.navigate(loc, { trigger: true });
+      var loc = ['structure', this.model.id, 'edit'].join('/')
+      this.router.navigate(loc, { trigger: true })
     },
 
-    deleteStructure: function () { 
+    deleteStructure: function () {
       // Destroying model triggers view cleanup.
-      this.model.destroy();
+      this.model.destroy()
     }
 
-  });
-}());
+  })
+}())
