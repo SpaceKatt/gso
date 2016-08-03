@@ -75,15 +75,33 @@ suite('Gso.MathLib.BinaryMatrix Operation methods', function () {
   })
 
   test('Row retrieved correctly', function () {
-    assert(false)
+    var elements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var expectedRow = [1, 0, 1]
+    var actualRow = matrix.getRow(1)
+    assert.deepEqual(actualRow, expectedRow)
   })
 
   test('Element set correctly', function () {
-    assert(false)
+    var elements = [[0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    assert(matrix.elements[1][1] === 1)
+    matrix.setElement(2, 2, 0)
+    assert(matrix.elements[1][1] === 0)
   })
 
   test('Element retrieved correctly', function () {
-    assert(false)
+    var elements = [[0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var returnedElement = matrix.getElement(2, 2)
+    assert(returnedElement === 1)
+    assert(matrix.elements[1][1] === returnedElement)
   })
 
   test('Column set correctly', function () {
@@ -100,23 +118,49 @@ suite('Gso.MathLib.BinaryMatrix Operation methods', function () {
   })
 
   test('Column retrieved correctly', function () {
-    assert(false)
+    var elements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var returnedCol = matrix.getColumn(2, 2)
+    var expectedCol = [0, 1, 0]
+    assert.deepEqual(returnedCol, expectedCol)
   })
 
   test('Number of rows correctly returned', function () {
-    assert(false)
+    var elements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var numOfRows = matrix.numberOfRows()
+    assert.strictEqual(numOfRows, 3)
   })
 
   test('Number of Columns correctly returned', function () {
-    assert(false)
+    var elements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var numOfCols = matrix.numberOfColumns()
+    assert.strictEqual(numOfCols, 3)
   })
 
   test('Duplicate matrix valid', function () {
-    assert(false)
+    var elements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var dupeMatrix = matrix.duplicateMatrix()
+    assert.deepEqual(dupeMatrix.elements, matrix.elements)
   })
 
   test('Same size matrix detection valid', function () {
-    assert(false)
+    var elements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var idMatrix = Gso.MathLib.BinaryMatrix.id(3)
+    assert.isOk(matrix.isSameSizeAs(idMatrix))
   })
 
   test('Functions Map properly', function () {
