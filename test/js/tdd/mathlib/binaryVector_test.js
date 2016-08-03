@@ -1,15 +1,22 @@
 /* global suite, expect, Gso, test, assert */
 suite('Gso.MathLib.BinaryVector Factory methods', function () {
   test('Create new vector', function () {
-    assert(false)
+    var elements = [1, 0, 0, 1, 1]
+    var vector = Gso.MathLib.BinaryVector.newOne(elements)
+    var elementsExpected = [1, 0, 0, 1, 1]
+    assert.deepEqual(vector.elements, elementsExpected)
   })
 
   test('Create zero vector', function () {
-    assert(false)
+    var zeroVector = Gso.MathLib.BinaryVector.zero(4)
+    var expectedElements = [0, 0, 0, 0]
+    assert.deepEqual(zeroVector.elements, expectedElements)
   })
 
   test('Create vector with all ones', function () {
-    assert(false)
+    var onesVector = Gso.MathLib.BinaryVector.one(5)
+    var expectedElements = [1, 1, 1, 1, 1]
+    assert.deepEqual(onesVector.elements, expectedElements)
   })
 })
 
