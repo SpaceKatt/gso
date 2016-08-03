@@ -164,26 +164,76 @@ suite('Gso.MathLib.BinaryMatrix Operation methods', function () {
   })
 
   test('Functions Map properly', function () {
-    assert(false)
+    var elements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var sampleFunc = function (value, row, column) {
+      return value * 2
+    }
+    var processedMatrix = matrix.mapProcess(sampleFunc)
+    var expectedElements = [[2, 0, 2],
+        [0, 2, 0],
+        [2, 0, 2]]
+    assert.deepEqual(processedMatrix.elements, expectedElements)
   })
 
   test('Matrices add correctly', function () {
-    assert(false)
+    var elements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    var matrix = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var matrixTwo = Gso.MathLib.BinaryMatrix.newOne(elements)
+    var resultingMatrix = matrix.add(matrixTwo)
+    var expectedElements = [[2, 0, 2],
+        [0, 2, 0],
+        [2, 0, 2]]
+    assert.deepEqual(resultingMatrix.elements, expectedElements)
   })
 
   test('Matrices subtract correctly', function () {
-    assert(false)
+    var univeralMatrix = Gso.MathLib.BinaryMatrix.newOne([[1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 1]])
+    var otherMatrix =  Gso.MathLib.BinaryMatrix.newOne([[0, 1, 0],
+        [1, 0, 1],
+        [0, 1, 0]])
+    var resultMatrix = univeralMatrix.subtract(otherMatrix)
+    var expectedElements = [[1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]]
+    assert.deepEqual(resultMatrix.elements, expectedElements)
   })
 
   test('Left Multiply valid', function () {
-    assert(false)
+    var univeralMatrix = Gso.MathLib.BinaryMatrix.newOne([[1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 1]])
+    var otherMatrix =  Gso.MathLib.BinaryMatrix.newOne([[0, 1, 0],
+        [1, 0, 1],
+        [0, 1, 0]])
+    assert.isOk(univeralMatrix.leftMultiply(otherMatrix))
   })
 
   test('Boolean multiplication valid', function () {
-    assert(false)
+    var matrix =  Gso.MathLib.BinaryMatrix.newOne([[0, 1, 0],
+        [0, 0, 1],
+        [0, 1, 0]])
+    var otherMatrix =  Gso.MathLib.BinaryMatrix.newOne([[0, 1, 0],
+        [1, 0, 0],
+        [0, 0, 1]])
+    var multipliedMatrix = matrix.boolMultiply(otherMatrix)
+    var expectedElements = [[1, 0, 0],
+        [0, 0, 1],
+        [1, 0, 0]]
+    assert.deepEqual(multipliedMatrix.elements, expectedElements)
   })
 
   test('Matrix view valid', function () {
-    assert(false)
+    var matrix =  Gso.MathLib.BinaryMatrix.newOne([[0, 1, 0],
+        [0, 0, 1],
+        [0, 1, 0]])
+    var expectedView = '[0, 1, 0]<br>[0, 0, 1]<br>[0, 1, 0]'
+    assert.strictEqual(matrix.matrixView(), expectedView)
   })
 })
